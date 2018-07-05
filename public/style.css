@@ -1,0 +1,65 @@
+html {
+    background-image: url("page.png");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: fixed;
+}
+
+h2,
+h3 {
+    font-family: Roboto;
+}
+
+h2 {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    font-size: 23px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    font-family: Roboto;
+    padding: 10px 30px;
+    border-radius: 20px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.fill {
+    font-family: Roboto;
+    width: 350px;
+    height: 45px;
+    font-size: 20px;
+}
+
+#signature-canvas {
+    width: 500px;
+    height: 120px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.assinatura {
+    margin-top: 10px;
+}
+
+.last {
+    margin-top: 5px;
+}
