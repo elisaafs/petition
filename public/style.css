@@ -1,36 +1,37 @@
 html {
-    background-image: url("page.png");
+    background-image: url("fundo.jpg");
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     position: fixed;
+    height: 100%;
+    width: 100%;
 }
 
-h2,
-h3 {
+p {
+    font-size: 30px;
     font-family: Roboto;
+    text-align: center;
+    line-height: 1.4;
 }
 
 h2 {
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-}
-
-h3 {
-    font-size: 23px;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: Roboto;
+    text-align: center;
+    line-height: 1.4;
 }
 
 .button {
     font-family: Roboto;
     padding: 10px 30px;
-    border-radius: 20px;
-    width: 200px;
+    width: 405px;
+    font-size: 15px;
     margin-top: 10px;
+    font-weight: bold;
+    background-color: #f0d730;
 }
 
 .button:hover {
@@ -39,21 +40,33 @@ h3 {
 
 .fill {
     font-family: Roboto;
-    width: 350px;
-    height: 45px;
+    width: 400px;
+    height: 70px;
     font-size: 20px;
 }
 
 #signature-canvas {
     width: 500px;
     height: 120px;
+    background-color: white;
 }
 
 #form {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    align-content: center;
+    flex-direction: column;
+    width: 600px;
+    background-color: #f0d730;
+    opacity: 0.8;
 }
 
 .assinatura {
@@ -62,4 +75,49 @@ h3 {
 
 .last {
     margin-top: 5px;
+}
+
+.messageLogin {
+    font-family: Roboto;
+    margin-top: 10px;
+    font-weight: bold;
+    align-self: center;
+}
+
+#form2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#form3 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+a {
+    color: blue;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8%;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.error-message {
+    font-family: Roboto;
+    color: red;
+    align-self: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 28px;
 }

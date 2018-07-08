@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="wrapper">
+        <p>Everybody has already felt that unpleasant body odor. If you haven’t, you will at some point, most likely at the time of the year in which the temparature rises. This may lead to embarassing situations.</p>
+        <h2>In Berlin it is not different. Sign our petition to make wearing deodorant mandatory during the summer months before using public transportation.</h2>
+    </div>
+    <form id="form3" method="post">
+        <div class="error-message">{{error}}</div>
+        <input class="fill" type="text" name="firstname" placeholder="First Name" />
+        <input class="fill" cxtype="text" name="lastname" placeholder="Last Name" />
+        <canvas id="signature-canvas" class="assinatura" width="500" height="100" style="border: 1px solid black"></canvas>
+        <input id="signature-input" type="hidden" name="signatureName" value="">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input class="button" type="submit" name="button" value="SIGN"></input>
+    </form>
+</div>
+
+
+<script src="/script.js" type="text/javascript" charset="utf-8"></script>
