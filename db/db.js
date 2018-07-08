@@ -2,13 +2,13 @@ const spicedPg = require("spiced-pg");
 
 const db = spicedPg("postgres:Elisa:elisa1@localhost:5432/petition");
 
-exports.insertUser = function(firstName, lastName, signatures) {
+exports.insertUser = function(firstName, lastName, signature) {
     const q = `
-          INSERT INTO signatures (first_name, last_name, signatures)
+          INSERT INTO signatures (first_name, last_name, signature)
           VALUES ($1, $2, $3)
           RETURNING *
     `;
-    const params = [firstName, lastName, signatures];
+    const params = [firstName, lastName, signature];
     return db.query(q, params).then(results => {
         return results.rows[0];
     });

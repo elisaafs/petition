@@ -9,6 +9,11 @@ html {
     width: 100%;
 }
 
+body {
+    height: 100%;
+    position: relative;
+}
+
 p {
     font-size: 30px;
     font-family: Roboto;
@@ -29,7 +34,7 @@ h2 {
     padding: 10px 30px;
     width: 405px;
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
     background-color: #f0d730;
 }
@@ -47,8 +52,9 @@ h2 {
 
 #signature-canvas {
     width: 500px;
-    height: 120px;
+    height: 100px;
     background-color: white;
+    cursor: crosshair;
 }
 
 #form {
@@ -79,7 +85,7 @@ h2 {
 
 .messageLogin {
     font-family: Roboto;
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
     align-self: center;
 }
@@ -107,10 +113,14 @@ a {
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 8%;
-    padding-left: 7%;
-    padding-right: 7%;
+    justify-content: space-around;
+    height: 100%;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
 }
 
 .error-message {
@@ -120,4 +130,11 @@ a {
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 28px;
+}
+
+.logo {
+    width: 120px;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
 }

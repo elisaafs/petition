@@ -51,21 +51,12 @@ app.post("/", (req, res) => {
                 ).then(registeredUser => {
                     req.session.signatureId = registeredUser.id;
                     console.log("registeredUser.id", registeredUser.id);
-                    res.json(registeredUser);
                     res.redirect("/sign");
                 });
             })
             .catch(err => {
                 console.log(err);
             });
-    }
-});
-
-app.use((req, res, next) => {
-    if (!req.session.signatureId) {
-        res.redirect("/");
-    } else {
-        next();
     }
 });
 
@@ -76,15 +67,18 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-    if (req.body.emailAddress == "" || req.body.password == "") {
+    if (req.body.emailAddress === "" || req.body.password === "") {
         res.render("login", {
             layout: "main",
             error: "Please fill all the fields bellow."
         });
     } else {
         db.getInfo(req.body.email).then(results => {
-            if (results.length == 0) {
-                res.redirect("/login");
+            if (results === undefined || results.length === 0) {
+                res.render("login", {
+                    layout: "main",
+                    error: "Email or password incorrect."
+                });
             } else {
                 let hashedPassword = results.hashed_password;
                 bc.checkPassword(req.body.password, hashedPassword).then(
@@ -93,7 +87,6 @@ app.post("/login", (req, res) => {
                             res.redirect("/sign");
                             console.log(checked);
                         } else {
-                            res.redirect("/login");
                             res.render("login", {
                                 layout: "main",
                                 error: "Email or password incorrect."
@@ -113,6 +106,7 @@ app.get("/sign", (req, res) => {
 });
 
 app.post("/sign", (req, res) => {
+    console.log("Where is the response? 1");
     if (
         req.body.firstname == "" ||
         req.body.lastname == "" ||
@@ -123,6 +117,7 @@ app.post("/sign", (req, res) => {
             error: "Please fill all the fields bellow and sign."
         });
     } else {
+        console.log("Where is the response? 2");
         db.insertUser(
             req.body.firstname,
             req.body.lastname,
@@ -134,19 +129,26 @@ app.post("/sign", (req, res) => {
                 keyFirstName: newUser.first_name,
                 keyLastName: newUser.last_name
             };
+            console.log("Where is the response? 3");
             res.redirect("/thanks");
         });
     }
 });
 
+app.use((req, res, next) => {
+    if (!req.session.signatureId) {
+        res.redirect("/");
+    } else {
+        next();
+    }
+});
+
 app.get("/thanks", (req, res) => {
-    db.getId(req.session.signatureId).then(results => {
+    db.getSigners(req.session.signatureId).then(results => {
+        console.log("Where is the number of signers?", results.length);
         res.render("thankspage", {
             layout: "main2",
-            nOfSigners: results.length,
-            firstname: results.first_name,
-            lastname: results.last_name,
-            signature: results.signature
+            nOfSigners: results.length
         });
     });
 });

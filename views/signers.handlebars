@@ -1,9 +1,14 @@
-<div class="container2">
-    <h1>They also signed our petition:</h1>
-    {{#content}}
-        <li>{{first_name}} {{last_name}}</li>
-    {{/content}}
-    <div>
-      <a href="/logout">Logout</a>
+<div class="center-wrapper">
+    <div class="container2">
+        <div class="title">They also signed our petition:</div>
+        <div class="scrollable">
+            {{#content}}
+                <div class="signer">{{first_name}} {{last_name}}</div>
+            {{/content}}
+        </div>
+        <a class="message-logout" href="/logout">Logout</a>
     </div>
 </div>
+
+
+<img class="logo" src="bvg.png">

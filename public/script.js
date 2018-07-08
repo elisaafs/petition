@@ -4,13 +4,13 @@ const hiddenInput = document.getElementById("signature-input");
 
 canvas.addEventListener("mousedown", function(e) {
     ctx.beginPath();
-    var x = e.clientX - e.target.offsetLeft;
-    var y = e.clientY - e.target.offsetTop;
+    var x = e.clientX - this.offsetLeft - 8;
+    var y = e.clientY - this.offsetTop - 8;
     ctx.moveTo(x, y);
     canvas.addEventListener("mousemove", move);
     function move(e) {
-        var x = e.clientX - e.target.offsetLeft;
-        var y = e.clientY - e.target.offsetTop;
+        var x = e.clientX - this.offsetLeft - 8;
+        var y = e.clientY - this.offsetTop - 8;
         ctx.lineTo(x, y);
         ctx.stroke();
     }

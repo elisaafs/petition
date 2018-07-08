@@ -7,12 +7,13 @@
         <div class="error-message">{{error}}</div>
         <input class="fill" type="text" name="firstname" placeholder="First Name" />
         <input class="fill" cxtype="text" name="lastname" placeholder="Last Name" />
-        <canvas id="signature-canvas" class="assinatura" width="500" height="100" style="border: 1px solid black"></canvas>
+        <canvas id="signature-canvas" class="assinatura" width="500" height="100"></canvas>
         <input id="signature-input" type="hidden" name="signatureName" value="">
         <input type="hidden" name="_csrf" value="{{csrfToken}}">
         <input class="button" type="submit" name="button" value="SIGN"></input>
     </form>
 </div>
 
+<img class="logo" src="bvg.png">
 
 <script src="/script.js" type="text/javascript" charset="utf-8"></script>
