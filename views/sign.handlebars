@@ -4,9 +4,7 @@
         <h2>In Berlin it is not different. Sign our petition to make wearing deodorant mandatory during the summer months before using public transportation.</h2>
     </div>
     <form id="form3" method="post">
-        <div class="error-message">{{error}}</div>
-        <input class="fill" type="text" name="firstname" placeholder="First Name" />
-        <input class="fill" cxtype="text" name="lastname" placeholder="Last Name" />
+        <div class="error-message">{{error}}</div>>
         <canvas id="signature-canvas" class="assinatura" width="500" height="100"></canvas>
         <input id="signature-input" type="hidden" name="signatureName" value="">
         <input type="hidden" name="_csrf" value="{{csrfToken}}">
@@ -14,6 +12,6 @@
     </form>
 </div>
 
-<img class="logo" src="bvg.png">
+<img class="logo" src="/bvg.png">
 
 <script src="/script.js" type="text/javascript" charset="utf-8"></script>

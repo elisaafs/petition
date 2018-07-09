@@ -3,7 +3,17 @@
         <div class="title">They also signed our petition:</div>
         <div class="scrollable">
             {{#content}}
-                <div class="signer">{{first_name}} {{last_name}}</div>
+                {{#if homepage}}
+                  <a href="{{homepage}}">{{first_name}} {{last_name}}</a>
+                {{else}}
+                  {{first_name}} {{last_name}}
+                {{/if}}
+                {{#if age}}
+                  , {{age}}
+                {{/if}}
+                {{#if area_of_berlin}}
+                  , <a href="/signers/{{area_of_berlin}}">{{area_of_berlin}}</a>
+                {{/if}}
             {{/content}}
         </div>
         <a class="message-logout" href="/logout">Logout</a>
@@ -11,4 +21,4 @@
 </div>
 
 
-<img class="logo" src="bvg.png">
+<img class="logo" src="/bvg.png">

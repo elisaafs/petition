@@ -1,0 +1,21 @@
+<div class="center-wrapper">
+    <div class="container2">
+        <div class="title">{{length}} signer(s) in {{area_of_berlin}}</div>
+        <div>{{error}}</div>
+        <div class="scrollable">
+        {{#content}}
+            {{#if homepage}}
+                <a href="{{homepage}}">{{first_name}} {{last_name}}</a>
+             {{else}}
+                {{first_name}} {{last_name}}
+            {{/if}}
+            {{#if age}}
+              , {{age}}
+            {{/if}}
+        {{/content}}
+        </div>
+        <a class="message-logout" href="/logout">Logout</a>
+    </div>
+</div>
+
+<img class="logo" src="/bvg.png">

@@ -7,6 +7,7 @@ html {
     position: fixed;
     height: 100%;
     width: 100%;
+    font-family: Roboto;
 }
 
 body {
@@ -16,7 +17,6 @@ body {
 
 p {
     font-size: 30px;
-    font-family: Roboto;
     text-align: center;
     line-height: 1.4;
 }
@@ -24,13 +24,11 @@ p {
 h2 {
     font-size: 36px;
     font-weight: bold;
-    font-family: Roboto;
     text-align: center;
     line-height: 1.4;
 }
 
 .button {
-    font-family: Roboto;
     padding: 10px 30px;
     width: 405px;
     font-size: 15px;
@@ -44,7 +42,6 @@ h2 {
 }
 
 .fill {
-    font-family: Roboto;
     width: 400px;
     height: 70px;
     font-size: 20px;
@@ -62,6 +59,7 @@ h2 {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .wrapper {
@@ -72,7 +70,7 @@ h2 {
     flex-direction: column;
     width: 600px;
     background-color: #f0d730;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .assinatura {
@@ -84,8 +82,7 @@ h2 {
 }
 
 .messageLogin {
-    font-family: Roboto;
-    margin-top: 15px;
+    margin-top: 20px;
     font-weight: bold;
     align-self: center;
 }
@@ -124,10 +121,9 @@ a {
 }
 
 .error-message {
-    font-family: Roboto;
     color: red;
     align-self: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
     font-size: 28px;
 }
@@ -137,4 +133,23 @@ a {
     position: absolute;
     bottom: 0px;
     right: 0;
+}
+
+.profile {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.answers {
+    font-size: 20px;
+}
+
+.error-message-profile {
+    color: red;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 28px;
 }

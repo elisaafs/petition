@@ -25,7 +25,7 @@ body {
     align-items: center;
     width: 700px;
     background-color: #f0d730;
-    opacity: 0.8;
+    opacity: 0.85;
     position: fixed;
     top: 34%;
     left: 34%;
@@ -39,7 +39,7 @@ body {
     align-items: stretch;
     max-width: 700px;
     background-color: #f0d730;
-    opacity: 0.8;
+    opacity: 0.85;
     height: 70%;
 }
 
@@ -70,11 +70,6 @@ body {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.bvg {
-    width: 400px;
-    opacity: 1;
-}
-
 a {
     font-size: 16px;
     font-weight: bold;
@@ -102,4 +97,37 @@ a {
     font-size: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
+}
+
+.signers {
+    font-size: 26px;
+    color: blue;
+    text-decoration: none;
+    padding-bottom: 20px;
+}
+
+.thanks-message {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.message-logout {
+    padding-bottom: 15px;
+}
+
+.content {
+    font-size: 16px;
+}
+
+.area {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title2 {
+    padding: 15px 30px 15px 30px;
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }

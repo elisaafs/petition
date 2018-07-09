@@ -49,10 +49,47 @@ app.post("/", (req, res) => {
                     req.body.email,
                     pass
                 ).then(registeredUser => {
-                    req.session.signatureId = registeredUser.id;
+                    req.session.id = registeredUser.id;
                     console.log("registeredUser.id", registeredUser.id);
-                    res.redirect("/sign");
+                    res.redirect("/profile");
                 });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+});
+
+app.get("/profile", (req, res) => {
+    res.render("profile", {
+        layout: "main"
+    });
+});
+
+app.post("/profile", (req, res) => {
+    if (isNaN(req.body.age)) {
+        res.render("profile", {
+            layout: "main",
+            error: "Write just numbers in the field 'Age'."
+        });
+    } else {
+        console.log("Where is the response? 1");
+        db.insertInfoUsers(
+            req.session.id,
+            req.body.age,
+            req.body.areaOfBerlin,
+            req.body.homepage
+        )
+            .then(newUserInfos => {
+                console.log("Where is the response? 2");
+                req.session.infos = newUserInfos.id;
+                req.session.user = {
+                    keyAge: newUserInfos.age,
+                    keyAreaOfBerlin: newUserInfos.areaOfBerlin,
+                    keyHomepage: newUserInfos.homepage
+                };
+                console.log("Where is the response? 3");
+                res.redirect("/sign");
             })
             .catch(err => {
                 console.log(err);
@@ -84,6 +121,7 @@ app.post("/login", (req, res) => {
                 bc.checkPassword(req.body.password, hashedPassword).then(
                     checked => {
                         if (checked) {
+                            req.session.id = results.id;
                             res.redirect("/sign");
                             console.log(checked);
                         } else {
@@ -106,32 +144,26 @@ app.get("/sign", (req, res) => {
 });
 
 app.post("/sign", (req, res) => {
-    console.log("Where is the response? 1");
-    if (
-        req.body.firstname == "" ||
-        req.body.lastname == "" ||
-        req.body.signatureName == ""
-    ) {
+    console.log("Where is the response in sign? 1");
+    if (req.body.signatureName == "") {
         res.render("sign", {
             layout: "main",
-            error: "Please fill all the fields bellow and sign."
+            error: "Please sign in the space bellow."
         });
     } else {
-        console.log("Where is the response? 2");
-        db.insertUser(
-            req.body.firstname,
-            req.body.lastname,
-            req.body.signatureName
-        ).then(newUser => {
-            req.session.signatureId = newUser.id;
-            req.session.user = {
-                keyId: newUser.id,
-                keyFirstName: newUser.first_name,
-                keyLastName: newUser.last_name
-            };
-            console.log("Where is the response? 3");
-            res.redirect("/thanks");
-        });
+        console.log("Where is the response in sign? 2");
+        db.insertSignature(req.session.id, req.body.signatureName)
+            .then(newUserSignature => {
+                req.session.signatureId = newUserSignature.id;
+                req.session.user = {
+                    keySignature: newUserSignature.id
+                };
+                console.log("Where is the response in sign? 3");
+                res.redirect("/thanks");
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 });
 
@@ -144,7 +176,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/thanks", (req, res) => {
-    db.getSigners(req.session.signatureId).then(results => {
+    db.getSigners(req.session.id).then(results => {
         console.log("Where is the number of signers?", results.length);
         res.render("thankspage", {
             layout: "main2",
@@ -154,10 +186,11 @@ app.get("/thanks", (req, res) => {
 });
 
 app.get("/signers", (req, res) => {
-    db.getSigners().then(results => {
+    db.getList().then(profile => {
+        console.log(profile);
         res.render("signers", {
             layout: "main2",
-            content: results
+            content: profile
         });
     });
 });
@@ -165,6 +198,26 @@ app.get("/signers", (req, res) => {
 app.get("/logout", (req, res) => {
     req.session = null;
     res.redirect("/");
+});
+
+app.get("/signers/:areaofberlin", (req, res) => {
+    db.getAreaOfBerlin(req.params.areaofberlin)
+        .then(areaSigners => {
+            console.log(areaSigners);
+            res.render("areasofberlin", {
+                layout: "main2",
+                content: areaSigners,
+                length: areaSigners.length,
+                area_of_berlin: req.params.areaofberlin
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.render("areasofberlin", {
+                layout: "main2",
+                error: "There is no signatures yet in this area of Berlin."
+            });
+        });
 });
 
 app.listen(8080);
