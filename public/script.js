@@ -1,6 +1,7 @@
 const canvas = document.getElementById("signature-canvas");
 const ctx = canvas.getContext("2d");
 const hiddenInput = document.getElementById("signature-input");
+const buttonEditProfile = document.getElementById("button-edit-profile");
 
 canvas.addEventListener("mousedown", function(e) {
     ctx.beginPath();
@@ -18,4 +19,8 @@ canvas.addEventListener("mousedown", function(e) {
         canvas.removeEventListener("mousemove", move);
         hiddenInput.value = canvas.toDataURL();
     });
+});
+
+buttonEditProfile.addEventListener("click", function(e) {
+    window.location = "/profile/edit";
 });

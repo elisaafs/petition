@@ -32,7 +32,7 @@ h2 {
     padding: 10px 30px;
     width: 405px;
     font-size: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: bold;
     background-color: #f0d730;
 }
@@ -70,7 +70,7 @@ h2 {
     flex-direction: column;
     width: 600px;
     background-color: #f0d730;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .assinatura {
@@ -144,12 +144,22 @@ a {
 
 .answers {
     font-size: 20px;
+    font-style: italic;
+    color: blue;
+    font-weight: bold;
 }
 
 .error-message-profile {
     color: red;
     text-align: center;
     margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.profile-edit-message {
+    color: blue;
+    margin-top: 15px;
     font-weight: bold;
     font-size: 28px;
 }

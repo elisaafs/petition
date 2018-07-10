@@ -23,14 +23,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 700px;
+    max-width: 700px;
     background-color: #f0d730;
-    opacity: 0.85;
+    opacity: 0.9;
     position: fixed;
     top: 34%;
     left: 34%;
     margin-top: -50px;
     margin-left: -100px;
+}
+
+.container-new {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    background-color: #f0d730;
+    opacity: 0.9;
 }
 
 .container2 {
@@ -39,12 +52,13 @@ body {
     align-items: stretch;
     max-width: 700px;
     background-color: #f0d730;
-    opacity: 0.85;
+    opacity: 0.9;
     height: 70%;
 }
 
 .container2 .title {
     padding: 15px 30px 15px 30px;
+    text-align: center;
     font-size: 32px;
     font-weight: bold;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -81,7 +95,7 @@ a {
 }
 
 .logo {
-    width: 120px;
+    max-width: 120px;
     position: absolute;
     bottom: 0px;
     right: 0;
@@ -125,9 +139,86 @@ a {
     font-weight: bold;
 }
 
-.title2 {
-    padding: 15px 30px 15px 30px;
-    font-size: 32px;
+.fill {
+    width: 400px;
+    height: 40px;
+    font-size: 17px;
+    background-color: ghostwhite;
+}
+
+.button {
+    height: 40px;
+    width: 405px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-weight: bold;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: ghostwhite;
+    opacity: 1;
+    border: 1px solid black;
+    align-self: center;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button-new {
+    padding: 10px 30px;
+    height: 40px;
+    width: 405px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    background-color: ghostwhite;
+    border: 1px solid black;
+}
+
+.button-new:hover {
+    cursor: pointer;
+}
+
+.messageFill {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 2px;
+}
+
+.messageProfile {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.messageEdit {
+    text-align: center;
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.message-logout2 {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message-edit {
+    text-align: center;
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
 }

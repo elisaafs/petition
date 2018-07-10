@@ -5,12 +5,12 @@
         <div class="scrollable">
         {{#content}}
             {{#if homepage}}
-                <a href="{{homepage}}">{{first_name}} {{last_name}}</a>
+                <a href="{{homepage}}">{{first_name}} {{last_name}},</a>
              {{else}}
-                {{first_name}} {{last_name}}
+                {{first_name}} {{last_name}},
             {{/if}}
             {{#if age}}
-              , {{age}}
+               {{age}}
             {{/if}}
         {{/content}}
         </div>
@@ -19,3 +19,4 @@
 </div>
 
 <img class="logo" src="/bvg.png">
+<script src="/script.js" type="text/javascript" charset="utf-8"></script>

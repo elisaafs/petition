@@ -4,16 +4,17 @@
         <div class="scrollable">
             {{#content}}
                 {{#if homepage}}
-                  <a href="{{homepage}}">{{first_name}} {{last_name}}</a>
+                  <a href="{{homepage}}">{{first_name}} {{last_name}},</a>
                 {{else}}
-                  {{first_name}} {{last_name}}
+                  {{first_name}} {{last_name}},
                 {{/if}}
                 {{#if age}}
-                  , {{age}}
+                   {{age}},
                 {{/if}}
                 {{#if area_of_berlin}}
-                  , <a href="/signers/{{area_of_berlin}}">{{area_of_berlin}}</a>
+                   <a href="/signers/{{area_of_berlin}}">{{area_of_berlin}}</a>
                 {{/if}}
+                <br>
             {{/content}}
         </div>
         <a class="message-logout" href="/logout">Logout</a>
