@@ -7,6 +7,7 @@ const cookieSession = require("cookie-session");
 
 const {
     getHome,
+    getRegister,
     getProfile,
     getProfileEditor,
     getLoginView,
@@ -67,11 +68,13 @@ app.get("/signers", signedOutRedirect, getSignersView);
 app.get("/signers/:areaofberlin", signedOutRedirect, getSignersByAreaView);
 
 app.get("/", getHome);
-app.post("/", registerUser);
+
+app.get("/register", getRegister);
+app.post("/register", registerUser);
 
 app.get("/login", getLoginView);
 app.post("/login", login);
 
 app.get("/logout", signedOutRedirect, logout);
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);

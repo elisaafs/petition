@@ -6,6 +6,12 @@ exports.getHome = (req, res) => {
     });
 };
 
+exports.getRegister = (req, res) => {
+    res.render("signup", {
+        layout: "main"
+    });
+};
+
 exports.getProfile = (req, res) => {
     res.render("profile", {
         layout: "main"
