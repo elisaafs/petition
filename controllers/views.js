@@ -1,7 +1,7 @@
 const db = require("../db/db.js");
 
-exports.getHome = (req, res) => {
-    res.render("home", {
+exports.getFirstPage = (req, res) => {
+    res.render("firstpage", {
         layout: "main"
     });
 };
@@ -24,6 +24,12 @@ exports.getProfileEditor = (req, res) => {
             layout: "main2",
             content: allUsers
         });
+    });
+};
+
+exports.getHome = (req, res) => {
+    res.render("home", {
+        layout: "main"
     });
 };
 
@@ -92,4 +98,9 @@ exports.getSignersByAreaView = (req, res) => {
                 error: "There is no signatures yet in this area of Berlin."
             });
         });
+};
+
+exports.logout = (req, res) => {
+    req.session = null;
+    res.redirect("/");
 };

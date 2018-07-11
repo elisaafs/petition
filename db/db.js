@@ -122,43 +122,6 @@ exports.getList = function() {
     });
 };
 
-exports.editProfileUser = function(
-    usersId,
-    firstname,
-    lastname,
-    email,
-    hashedPassword,
-    age,
-    areaOfBerlin,
-    homepage
-) {
-    const q = `
-            INSERT INTO users(first_name, last_name, email, hashed_password)
-            VALUES($1, $2, $3, $4)
-            DO UPDATE SET first_name=firstName, last_name=lastName, email=email, hashed_password=hashedPassword
-            RETURNING *;
-
-            INSERT INTO profiles(userId, age, areaOfBerlin, homepage)
-            VALUES($1, $2, $3, $4)
-            ON CONFLICT (users_id)
-            DO UPDATE SET age=age, area_of_berlin=areaOfBerlin, homepage=homepage
-            RETURNING *;
-    `;
-    const params = [
-        usersId,
-        firstname,
-        lastname,
-        email,
-        hashedPassword,
-        age,
-        areaOfBerlin,
-        homepage
-    ];
-    return db.query(q, params).then(results => {
-        return results.rows[0];
-    });
-};
-
 exports.getInfoToEditProfile = function(userId) {
     const q = `SELECT users.first_name, users.last_name, users.email, users.hashed_password, profiles.age, profiles.area_of_berlin, profiles.homepage
          FROM users
@@ -166,6 +129,46 @@ exports.getInfoToEditProfile = function(userId) {
          WHERE users.id = $1;`;
     const params = [userId];
     return db.query(q, params).then(results => {
+        return results.rows[0];
+    });
+};
+
+exports.deleteSignature = function(userId) {
+    const q = `DELETE FROM signatures WHERE user_id = $1;`;
+    const params = [userId];
+    return db.query(q, params).then(deletedSignature => {
+        return deletedSignature;
+    });
+};
+
+exports.editProfile = function(userId, age, areaOfBerlin, homepage) {
+    const q = `INSERT INTO profiles (age, area_of_berlin, homepage, user_id)
+    VALUES ($1, $2, $3, $4)
+    ON CONFLICT (user_id)
+    DO UPDATE SET age = $1, area_of_berlin = $2, homepage = $3 WHERE profiles.user_id =$4
+    RETURNING *;`;
+    const params = [age || null, areaOfBerlin, homepage, userId];
+
+    return db.query(q, params).then(results => {
+        console.log(results.rows[0]);
+        return results.rows[0];
+    });
+};
+
+exports.editUser = function(
+    firstName,
+    lastName,
+    email,
+    hashedPassword,
+    userId
+) {
+    const q = `UPDATE users SET first_name = $1, last_name = $2, email = $3, hashed_password = $4 WHERE id = $5
+    RETURNING id, first_name, last_name, email;`;
+
+    const params = [firstName, lastName, email, hashedPassword, userId];
+    console.log(params);
+    return db.query(q, params).then(results => {
+        console.log(results.rows[0]);
         return results.rows[0];
     });
 };

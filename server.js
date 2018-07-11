@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const cookieSession = require("cookie-session");
 
 const {
+    getFirstPage,
     getHome,
     getRegister,
     getProfile,
@@ -22,7 +23,8 @@ const {
     updateProfile,
     login,
     storeSignature,
-    logout
+    logout,
+    deleteSignature
 } = require("./controllers/users");
 
 app.use(
@@ -47,13 +49,13 @@ const signedOutRedirect = (req, res, next) => {
     }
 };
 
-// const signedInRedirect = (req, res, next) => {
-//     if (req.session.id) {
-//         res.redirect("/sign");
-//     } else {
-//         next();
-//     }
-// };
+const signedInRedirect = (req, res, next) => {
+    if (req.session.id) {
+        res.redirect("/home");
+    } else {
+        next();
+    }
+};
 
 app.get("/profile", signedOutRedirect, getProfile);
 app.post("/profile", signedOutRedirect, storeProfile);
@@ -67,14 +69,18 @@ app.post("/sign", signedOutRedirect, storeSignature);
 app.get("/signers", signedOutRedirect, getSignersView);
 app.get("/signers/:areaofberlin", signedOutRedirect, getSignersByAreaView);
 
-app.get("/", getHome);
+app.get("/", signedInRedirect, getFirstPage);
 
-app.get("/register", getRegister);
-app.post("/register", registerUser);
+app.get("/home", signedOutRedirect, getHome);
+
+app.get("/register", signedInRedirect, getRegister);
+app.post("/register", signedInRedirect, registerUser);
 
 app.get("/login", getLoginView);
 app.post("/login", login);
 
 app.get("/logout", signedOutRedirect, logout);
+
+app.get("/delete", deleteSignature);
 
 app.listen(process.env.PORT || 8080);

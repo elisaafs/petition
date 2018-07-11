@@ -4,7 +4,9 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    position: fixed;
     height: 100%;
+    width: 100%;
     font-family: Roboto;
 }
 
@@ -19,18 +21,22 @@ body {
     justify-content: center;
 }
 
+.bigcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     max-width: 700px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #f0d730;
     opacity: 0.9;
-    position: fixed;
-    top: 34%;
-    left: 34%;
-    margin-top: -50px;
-    margin-left: -100px;
 }
 
 .container-new {
@@ -164,7 +170,6 @@ a {
 }
 
 .button-new {
-    padding: 10px 30px;
     height: 40px;
     width: 405px;
     font-size: 15px;
@@ -176,6 +181,21 @@ a {
 }
 
 .button-new:hover {
+    cursor: pointer;
+}
+
+.button-new2 {
+    height: 40px;
+    width: 405px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    background-color: ghostwhite;
+    border: 1px solid black;
+}
+
+.button-new:hover2 {
     cursor: pointer;
 }
 
@@ -221,4 +241,46 @@ a {
     color: red;
     font-size: 10px;
     font-weight: bold;
+}
+
+.button-logout {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid;
+    position: absolute;
+    top: 8px;
+    color: black;
+    right: 11px;
+}
+
+.button-logout:hover {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button-signers {
+    width: 120px;
+    height: 37px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    background-color: ghostwhite;
+    border: 1px solid black;
+    margin-left: 15px;
+}
+
+.button-signers:hover {
+    cursor: pointer;
+}
+
+.buttons-signerspage {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

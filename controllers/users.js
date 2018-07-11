@@ -10,7 +10,7 @@ exports.registerUser = (req, res) => {
         req.body.emailAddress == "" ||
         req.body.password == ""
     ) {
-        res.render("home", {
+        res.render("signup", {
             layout: "main",
             error: "Please fill all the fields below."
         });
@@ -61,7 +61,7 @@ exports.storeProfile = (req, res) => {
                     keyAreaOfBerlin: newUserInfos.areaOfBerlin,
                     keyHomepage: newUserInfos.homepage
                 };
-                res.redirect("/sign");
+                res.redirect("/home");
             })
             .catch(err => {
                 console.log(err);
@@ -78,13 +78,24 @@ exports.updateProfile = (req, res) => {
         });
     }
     if (req.body.password != "") {
-        bc.hashPassword(req.body.password)
+        Promise.all([
+            bc.hashPassword(req.body.password),
+            db.editProfile(
+                req.session.id,
+                req.body.age === "" ? undefined : parseInt(req.body.age),
+                req.body.areaOfBerlin,
+                req.body.homepage
+            ),
+            db.editUser(
+                req.body.firstName,
+                req.body.lastName,
+                req.body.email,
+                req.body.hashedPassword
+            )
+        ])
             .then(hashedPassword => {
                 pass = hashedPassword;
-                db.editProfileUser(
-                    req.body.firstname,
-                    req.body.lastname,
-                    req.body.email,
+                db.editProfile(
                     pass,
                     req.session.id,
                     req.body.age === "" ? undefined : parseInt(req.body.age),
@@ -93,7 +104,7 @@ exports.updateProfile = (req, res) => {
                 ).then(editedUserProfile => {
                     req.session.id = editedUserProfile.id;
                     console.log("editedUserProfile.id", editedUserProfile.id);
-                    res.redirect("/sign");
+                    res.redirect("/home");
                 });
             })
             .catch(err => {
@@ -121,7 +132,7 @@ exports.login = (req, res) => {
                     checked => {
                         if (checked) {
                             req.session.id = results.id;
-                            res.redirect("/sign");
+                            res.redirect("/home");
                             console.log(checked);
                         } else {
                             res.render("login", {
@@ -163,4 +174,14 @@ exports.storeSignature = (req, res) => {
 exports.logout = (req, res) => {
     req.session = null;
     res.redirect("/");
+};
+
+exports.deleteSignature = (req, res) => {
+    db.deleteSignature(req.session.id)
+        .then(() => {
+            res.redirect("/sign");
+        })
+        .catch(error => {
+            console.log(error);
+        });
 };

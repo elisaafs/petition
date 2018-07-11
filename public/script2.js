@@ -6,6 +6,11 @@ const buttonEditProfile = document.getElementById("button-edit-profile");
 const buttonGoBack = document.getElementById("goback");
 const buttonGoToRegister = document.getElementById("register-button");
 const buttonLogin = document.getElementById("login-button");
+const buttonLogout = document.getElementById("button-logout");
+const buttonSignPetition = document.getElementById("button-sign-petition");
+const buttonDeleteSignature = document.getElementById(
+    "button-delete-signature"
+);
 
 if (buttonGoBackHome) {
     buttonGoBackHome.addEventListener("click", function() {
@@ -40,5 +45,23 @@ if (buttonGoToRegister) {
 if (buttonLogin) {
     buttonLogin.addEventListener("click", function() {
         window.location = "/login";
+    });
+}
+
+if (buttonLogout) {
+    buttonLogout.addEventListener("click", function() {
+        window.location = "/logout";
+    });
+}
+
+if (buttonSignPetition) {
+    buttonSignPetition.addEventListener("click", function() {
+        window.location = "/sign";
+    });
+}
+
+if (buttonDeleteSignature) {
+    buttonDeleteSignature.addEventListener("click", function() {
+        window.location = "/delete";
     });
 }

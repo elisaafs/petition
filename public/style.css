@@ -39,6 +39,41 @@ h2 {
 
 .button:hover {
     cursor: pointer;
+    background-color: #fff334;
+}
+
+.button-logout {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid;
+    position: absolute;
+    top: 0px;
+    color: black;
+    right: 3px;
+}
+
+.button-logout:hover {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button-home {
+    padding: 10px 30px;
+    width: 600px;
+    height: 80px;
+    font-size: 23px;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: #f0d730;
+}
+
+.button-home:hover {
+    cursor: pointer;
+    background-color: #fff334;
 }
 
 .fill {
@@ -55,6 +90,15 @@ h2 {
 }
 
 #form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttons {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
