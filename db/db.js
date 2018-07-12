@@ -145,7 +145,7 @@ exports.editProfile = function(userId, age, areaOfBerlin, homepage) {
     const q = `INSERT INTO profiles (age, area_of_berlin, homepage, user_id)
     VALUES ($1, $2, $3, $4)
     ON CONFLICT (user_id)
-    DO UPDATE SET age = $1, area_of_berlin = $2, homepage = $3 WHERE profiles.user_id =$4
+    DO UPDATE SET age = $2, area_of_berlin = $3, homepage = $4 WHERE profiles.user_id =$1
     RETURNING *;`;
     const params = [age || null, areaOfBerlin, homepage, userId];
 

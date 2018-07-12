@@ -1,26 +1,32 @@
-<div class="center-wrapper">
-    <div class="container2">
-        <div class="title">{{length}} signer(s) in {{area_of_berlin}}</div>
-        <div>{{error}}</div>
-        <div class="scrollable">
-        {{#content}}
-            {{#if homepage}}
-                <a href="{{homepage}}">{{first_name}} {{last_name}},</a>
-             {{else}}
-                {{first_name}} {{last_name}},
-            {{/if}}
-            {{#if age}}
-               {{age}}
-            {{/if}}
-        {{/content}}
-        </div>
-        <div class="buttons-signerspage">
-            <input class="button-signers" id="goback" type="button" name="button" value="GO BACK"></input>
+<div class="content">
+    <div class="wrapper-top">
+        <img class="bvg" id="bvg-heart" src="/bvg.png">
+        <div class="inputs-first">
+            <input class="button-top-first" id="home-button" type="button" name="button" value="Home"></input>
+            <input class="button-top-first" id="aboutus-button-logged" type="button" name="button" value="About Us"></input>
+            <input class="button-top-first" id="edit-profile-button" type="button" name="button" value="Edit Profile"></input>
+            <input class="button-top-first" id="logout-button" type="button" name="button" value="Logout"></input>
         </div>
     </div>
-</div>
 
-<input class="button-logout" id="button-logout" type="button" name="button" value="LOGOUT"></input>
+    <div class="container">
+        <div class="wrapper-bottom-signers">
+            <div class="white-background"></div>
+            <div class="main-text-signers-city">{{length}} signer(s) in {{area_of_berlin}}</div>
+            <div class="scrollable">
+                {{#content}}
+                    {{#if homepage}}
+                        <a class="links-signers" href="{{homepage}}">{{first_name}} {{last_name}},</a>
+                     {{else}}
+                        {{first_name}} {{last_name}},
+                    {{/if}}
+                    {{#if age}}
+                       {{age}}
+                    {{/if}}
+                {{/content}}
+            </div>
+        </div>
+    </div>
+    </div>
 
-<img class="logo" src="/bvg.png">
-<script src="/script2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/script2.js" type="text/javascript" charset="utf-8"></script>

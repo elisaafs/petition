@@ -1,28 +1,43 @@
-<div class="container-new">
-    <div class="messageProfile">Edit your profile</div>
-    <form id="form" method="post">
-        {{#content}}
-            <div class="error-message-edit">{{error}}</div>
-            <input class="firstname fill" type="text" name="firstname" placeholder="{{first_name}}"/>
-            <div class="messageFill">First Name</div>
-            <input class="lastname fill" type="text" name="lastname" placeholder="{{last_name}}" />
-            <div class="messageFill">Last Name</div>
-            <input class="email fill" type="text" name="email" placeholder="{{email}}" />
-            <div class="messageFill">Email</div>
-            <input class="password fill" type="password" name="password" placeholder="Type your new password" />
-            <div class="messageFill">Password</div>
-            <input class="age fill" type="text" name="age" placeholder="{{age}}" />
-            <div class="messageFill">Age</div>
-            <input class="area-of-berlin fill" type="text" name="area-of-berlin" placeholder="{{area_of_berlin}}" />
-            <div class="messageFill">Area of Berlin where you live</div>
-            <input class="homepage fill" type="text" name="text" placeholder="{{homepage}}" />
-            <div class="messageFill">Homepage</div>
-            <input class="button" type="submit" name="button" value="UPDATE"></input>
-            <input class="button" id="goback" type="button" name="button" value="GO BACK"></input>
-        {{/content}}
-    </form>
+<div class="content">
+    <div class="wrapper-top">
+        <img class="bvg" id="bvg-heart" src="/bvg.png">
+        <div class="inputs-first">
+            <input class="button-top-first" id="home-button" type="button" name="button" value="Home"></input>
+            <input class="button-top-first" id="aboutus-button-logged" type="button" name="button" value="About Us"></input>
+            <input class="button-top-first" id="button-sign-petition" type="button" name="button" value="Sign the Petition"></input>
+            <input class="button-top-first" id="logout-button" type="button" name="button" value="Logout"></input>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="wrapper-bottom">
+            <div class="white-background"></div>
+            <p class="main-text-edit">Edit Your Profile</p>
+            <form id="form-register" method="post">
+                {{#content}}
+                    <div class="error-message-profile">{{error}}</div>
+                    <input class="fillEdit" type="text" name="firstname" placeholder="{{first_name}}"/>
+                    <div class="messageFill">First Name</div>
+                    <input class="fillEdit" type="text" name="lastname" placeholder="{{last_name}}" />
+                    <div class="messageFill">Last Name</div>
+                    <input class="fillEdit" type="text" name="email" placeholder="{{email}}" />
+                    <div class="messageFill">Email</div>
+                    <input class="fillEdit" type="password" name="password" placeholder="Type your new password" />
+                    <div class="messageFill">Password</div>
+                    <input class="fillEdit" type="text" name="age" placeholder="{{age}}" />
+                    <div class="messageFill">Age</div>
+                    <input class="fillEdit" type="text" name="area-of-berlin" placeholder="{{area_of_berlin}}" />
+                    <div class="messageFill">Area of Berlin where you live</div>
+                    <input class="fillEdit" type="text" name="text" placeholder="{{homepage}}" />
+                    <div class="messageFill">Homepage</div>
+                    <input class="button-submit-edit" type="submit" name="button" value="UPDATE"></input>
+                {{/content}}
+            </form>
+        </div>
+    </div>
 </div>
 
-<img class="logo" src="/bvg.png">
+
+
 
 <script src="/script2.js" type="text/javascript" charset="utf-8"></script>

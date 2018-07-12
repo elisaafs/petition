@@ -1,0 +1,378 @@
+html {
+    font-family: Ubuntu;
+    height: 100%;
+}
+
+input {
+    font-family: Ubuntu;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.wrapper-top {
+    background-color: rgba(40, 40, 40);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+
+.bvg {
+    max-width: 65px;
+    margin-left: 60px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.bvg:hover {
+    cursor: pointer;
+}
+
+.button-top-first {
+    background-color: rgba(40, 40, 40);
+    height: 45px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #f8b832;
+    margin-left: 10px;
+}
+
+.button-top-first:hover {
+    cursor: pointer;
+    color: white;
+    transition: color 0.5s;
+}
+
+.inputs-first {
+    margin-right: 60px;
+}
+
+.wrapper-bottom {
+    position: relative;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    padding: 10px;
+    font-size: 30px;
+}
+
+@media (max-width: 500px) {
+    .wrapper-bottom {
+        font-size: 23px;
+    }
+}
+
+.wrapper-bottom-signers {
+    position: relative;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    z-index: 1;
+    /* padding: 10px; */
+    font-size: 30px;
+    height: 70%;
+}
+
+@media (max-width: 500px) {
+    .wrapper-bottom {
+        font-size: 23px;
+    }
+}
+.button-bottom-first {
+    background-color: #f8b832;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 66%;
+    color: white;
+    margin-bottom: 40px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.button-bottom-first:hover {
+    cursor: pointer;
+    background-color: #ffdb8f;
+    color: rgba(40, 40, 40);
+}
+
+.main-text {
+    font-size: 133%;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(40, 40, 40);
+    margin-bottom: 20px;
+}
+
+.main-text-aboutus {
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(40, 40, 40);
+    margin-bottom: 20px;
+}
+
+.main-text-signers {
+    font-size: 110%;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(40, 40, 40);
+    margin-bottom: 20px;
+    padding: 0px 30px 15px 30px;
+    border-bottom: 1px solid #f8b832;
+}
+
+.main-text-signers-city {
+    font-size: 110%;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(40, 40, 40);
+    margin-bottom: 20px;
+    padding: 15px 30px 15px 30px;
+    border-bottom: 1px solid #f8b832;
+}
+
+.main-text-pr .text-first {
+    font-size: 90%;
+    color: rgba(40, 40, 40);
+    margin-top: 5px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.main-text-edit {
+    font-size: 110%;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(40, 40, 40);
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.text-home {
+    font-size: 90%;
+    color: rgba(40, 40, 40);
+    margin-top: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.text-aboutus {
+    font-size: 95%;
+    color: rgba(40, 40, 40);
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.text-thanks {
+    font-size: 80%;
+    color: rgba(40, 40, 40);
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.link-thanks {
+    color: rgba(40, 40, 40);
+}
+
+.content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-image: url("page.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    background-color: white;
+}
+
+#form-register {
+    display: flex;
+    flex-direction: column;
+}
+
+.fill {
+    width: 500px;
+    font-size: 22px;
+    font-family: Ubuntu;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+
+.fillEdit {
+    width: 500px;
+    font-size: 22px;
+    font-family: Ubuntu;
+    margin-bottom: 0px;
+    margin-top: 7px;
+}
+.button-submit-signup {
+    background-color: #f8b832;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 66%;
+    color: white;
+    margin-bottom: 40px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.button-submit-signup:hover {
+    cursor: pointer;
+    background-color: #ffdb8f;
+    color: rgba(40, 40, 40);
+}
+
+.button-submit-signpetition {
+    background-color: #f8b832;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 66%;
+    color: white;
+    transition: color 0.2s, background-color 0.2s;
+    margin-top: 5px;
+}
+
+.button-submit-signpetition:hover {
+    cursor: pointer;
+    background-color: #ffdb8f;
+    color: rgba(40, 40, 40);
+}
+
+.button-submit-edit {
+    background-color: #f8b832;
+    padding: 0.5em 2em;
+    font-weight: bold;
+    font-size: 66%;
+    color: white;
+    transition: color 0.2s, background-color 0.2s;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.button-submit-edit:hover {
+    cursor: pointer;
+    background-color: #ffdb8f;
+    color: rgba(40, 40, 40);
+}
+
+.button-bottom-aboutus {
+    background-color: #f8b832;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 66%;
+    color: white;
+    transition: color 0.2s, background-color 0.2s;
+    margin-top: 12px;
+    margin-bottom: 15px;
+}
+
+.button-bottom-aboutus:hover {
+    cursor: pointer;
+    background-color: #ffdb8f;
+    color: rgba(40, 40, 40);
+}
+
+.bottom-text-register {
+    font-size: 14px;
+}
+
+.click-here {
+    color: rgba(40, 40, 40);
+}
+
+.error-message-profile {
+    font-size: 16px;
+    color: #f8b832;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+#signature-canvas-new {
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    cursor: crosshair;
+    color: black;
+}
+
+#form-sign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-text-login {
+    font-size: 133%;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(40, 40, 40);
+    margin-bottom: 12px;
+    margin-top: 30px;
+}
+
+.button-submit-login {
+    background-color: #f8b832;
+    padding: 1em 2em;
+    font-weight: bold;
+    font-size: 66%;
+    color: white;
+    transition: color 0.2s, background-color 0.2s;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.button-submit-login:hover {
+    cursor: pointer;
+    background-color: #ffdb8f;
+    color: rgba(40, 40, 40);
+}
+
+.thanks-signature {
+    background-color: white;
+}
+
+.scrollable {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 30px;
+    padding-right: 30px;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 70%;
+    color: rgba(40, 40, 40);
+    padding-bottom: 25px;
+}
+
+.links-signers {
+    color: rgba(40, 40, 40);
+}
+
+.messageFill {
+    text-align: center;
+    font-size: 60%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

@@ -1,5 +1,17 @@
 const db = require("../db/db.js");
 
+exports.getAboutUs = (req, res) => {
+    res.render("aboutus", {
+        layout: "main"
+    });
+};
+
+exports.getAboutUsLoggedIn = (req, res) => {
+    res.render("aboutusIfLogin", {
+        layout: "main"
+    });
+};
+
 exports.getFirstPage = (req, res) => {
     res.render("firstpage", {
         layout: "main"
@@ -21,7 +33,7 @@ exports.getProfile = (req, res) => {
 exports.getProfileEditor = (req, res) => {
     db.getInfoToEditProfile(req.session.id).then(allUsers => {
         res.render("editprofile", {
-            layout: "main2",
+            layout: "main",
             content: allUsers
         });
     });
@@ -60,7 +72,7 @@ exports.getThanksView = (req, res) => {
         const signatureResult = results[1];
         console.log("Where is the number of signers?", signersResult.length);
         res.render("thankspage", {
-            layout: "main2",
+            layout: "main",
             nOfSigners: signersResult.length,
             signature:
                 signatureResult.length > 0
@@ -74,7 +86,7 @@ exports.getSignersView = (req, res) => {
     db.getList().then(profile => {
         console.log(profile);
         res.render("signers", {
-            layout: "main2",
+            layout: "main",
             content: profile
         });
     });
@@ -85,7 +97,7 @@ exports.getSignersByAreaView = (req, res) => {
         .then(areaSigners => {
             console.log(areaSigners);
             res.render("areasofberlin", {
-                layout: "main2",
+                layout: "main",
                 content: areaSigners,
                 length: areaSigners.length,
                 area_of_berlin: req.params.areaofberlin
@@ -94,7 +106,7 @@ exports.getSignersByAreaView = (req, res) => {
         .catch(err => {
             console.log(err);
             res.render("areasofberlin", {
-                layout: "main2",
+                layout: "main",
                 error: "There is no signatures yet in this area of Berlin."
             });
         });

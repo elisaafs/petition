@@ -73,7 +73,7 @@ exports.updateProfile = (req, res) => {
     let pass = "";
     if (req.body.age != "" && !utils.isStringANumber(req.body.age)) {
         res.render("editprofile", {
-            layout: "main2",
+            layout: "main",
             error: "Type just numbers in the field 'Age'."
         });
     }
@@ -85,12 +85,6 @@ exports.updateProfile = (req, res) => {
                 req.body.age === "" ? undefined : parseInt(req.body.age),
                 req.body.areaOfBerlin,
                 req.body.homepage
-            ),
-            db.editUser(
-                req.body.firstName,
-                req.body.lastName,
-                req.body.email,
-                req.body.hashedPassword
             )
         ])
             .then(hashedPassword => {

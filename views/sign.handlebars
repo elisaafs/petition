@@ -1,19 +1,27 @@
-<div class="container">
-    <div class="wrapper">
-        <p>Everybody has already felt that unpleasant body odor. If you haven’t, you will at some point, most likely at the time of the year in which the temparature rises. This may lead to embarassing situations.</p>
-        <h2>In Berlin it is not different. Sign our petition to make wearing deodorant mandatory during the summer months before using public transportation.</h2>
+<div class="content">
+    <div class="wrapper-top">
+        <img class="bvg" id="bvg-heart" src="bvg.png">
+        <div class="inputs-first">
+            <input class="button-top-first" id="home-button" type="button" name="button" value="Home"></input>
+            <input class="button-top-first" id="aboutus-button-logged" type="button" name="button" value="About Us"></input>
+            <input class="button-top-first" id="button-redirect-profile" type="button" name="button" value="Edit Profile"></input>
+            <input class="button-top-first" id="logout-button" type="button" name="button" value="Logout"></input>
+        </div>
     </div>
-    <form id="form3" method="post">
-        <div class="error-message">{{error}}</div>>
-        <canvas id="signature-canvas" class="assinatura" width="500" height="100"></canvas>
-        <input id="signature-input" type="hidden" name="signatureName" value="">
-        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input class="button" type="submit" name="button" value="SIGN"></input>
-        <input class="button" id="gobackHome" type="button" name="button" value="GO BACK"></input>
-    </form>
-</div>
 
-<img class="logo" src="/bvg.png">
+    <div class="container">
+        <div class="wrapper-bottom">
+            <div class="white-background"></div>
+            <form id="form-sign" method="post">
+                <div class="error-message-profile">{{error}}</div>
+                <canvas id="signature-canvas-new" class="sign" width="500" height="100"></canvas>
+                <input id="signature-input-new" type="hidden" name="signatureName" value="">
+                <input class="button-submit-signpetition" type="submit" name="button" value="SIGN THE PETITION"></input>
+            </form>
+        </div>
+    </div>
+    </div>
+
 
 <script src="/script.js" type="text/javascript" charset="utf-8"></script>
 <script src="/script2.js" type="text/javascript" charset="utf-8"></script>

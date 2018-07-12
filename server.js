@@ -15,7 +15,9 @@ const {
     getSignatureView,
     getThanksView,
     getSignersView,
-    getSignersByAreaView
+    getSignersByAreaView,
+    getAboutUs,
+    getAboutUsLoggedIn
 } = require("./controllers/views");
 const {
     registerUser,
@@ -70,6 +72,10 @@ app.get("/signers", signedOutRedirect, getSignersView);
 app.get("/signers/:areaofberlin", signedOutRedirect, getSignersByAreaView);
 
 app.get("/", signedInRedirect, getFirstPage);
+
+app.get("/aboutus", getAboutUs);
+
+app.get("/aboutus/loggedin", signedOutRedirect, getAboutUsLoggedIn);
 
 app.get("/home", signedOutRedirect, getHome);
 

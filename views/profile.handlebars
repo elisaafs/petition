@@ -1,16 +1,27 @@
-<div class="container">
-    <div class="wrapper">
-        <p class="profile">Before signing the petition, would you like to share* a little bit more about yourself with us? </p>
-        <p class="answers">*The answers are optionals.</p>
+<div class="content">
+    <div class="wrapper-top">
+        <img class="bvg" id="bvg-heart" src="bvg.png">
+        <div class="inputs-first">
+            <input class="button-top-first" id="home-button" type="button" name="button" value="Home"></input>
+            <input class="button-top-first" id="aboutus-button-logged" type="button" name="button" value="About Us"></input>
+            <input class="button-top-first" id="logout-button" type="button" name="button" value="Logout"></input>
+        </div>
     </div>
 
-    <form id="form" method="post">
-        <div class="error-message-profile">{{error}}</div>>
-        <input class="fill" type="text" name="age" placeholder="Age" />
-        <input class="fill" type="text" name="areaOfBerlin" placeholder="Area of Berlin where you live" />
-        <input class="fill" type="text" name="homepage" placeholder="Homepage" />
-        <input class="button" type="submit" name="button" value="CONTINUE"></input>
-    </form>
+    <div class="container">
+        <div class="wrapper-bottom">
+            <div class="white-background"></div>
+            <p class="main-text">Would you like to share a little bit more about yourself with us?</p>
+            <form id="form-register" method="post">
+                <div class="error-message-profile">{{error}}</div>
+                <input class="fill" type="text" name="age" placeholder="Age*" />
+                <input class="fill" type="text" name="areaOfBerlin" placeholder="Area of Berlin where you live*" />
+                <input class="fill" type="text" name="homepage" placeholder="Homepage*" />
+                <input class="button-submit-signup" type="submit" name="button" value="CONTINUE"></input>
+            </form>
+            <p class="bottom-text-register">*These fields are optionals.</p>
+        </div>
+    </div>
 </div>
 
-<img class="logo" src="/bvg.png">
+<script src="/script2.js" type="text/javascript" charset="utf-8"></script>
