@@ -182,7 +182,7 @@ body {
 }
 
 .text-aboutus {
-    font-size: 95%;
+    font-size: 90%;
     color: white;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -224,7 +224,8 @@ body {
     height: 100%;
     z-index: -1;
     background-color: rgba(40, 40, 40, 0.58);
-    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .white-background-test {
@@ -233,7 +234,8 @@ body {
     height: 100%;
     z-index: -1;
     background-color: rgba(40, 40, 40, 0.58);
-    padding: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 #form-register {
@@ -333,6 +335,8 @@ body {
 .bottom-text-register {
     font-size: 16px;
     color: white;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .click-here {
