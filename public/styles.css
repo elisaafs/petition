@@ -118,7 +118,7 @@ body {
     font-weight: bold;
     text-align: center;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .main-text-aboutus {
@@ -219,6 +219,14 @@ body {
 }
 
 .white-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(40, 40, 40, 0.58);
+}
+
+.white-background-edit-profile {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -414,8 +422,9 @@ body {
 
 .messageFill {
     text-align: center;
-    font-size: 50%;
+    font-size: 53%;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     color: white;
+    font-weight: 380;
 }
