@@ -35,8 +35,9 @@ body {
     background-color: rgba(40, 40, 40);
     height: 45px;
     font-weight: bold;
-    font-size: 15px;
-    color: #f8b832;
+    font-size: 18px;
+    color: rgba(249, 200, 50);
+    border: none;
     margin-left: 10px;
 }
 
@@ -44,6 +45,7 @@ body {
     cursor: pointer;
     color: white;
     transition: color 0.5s;
+    border: none;
 }
 
 .inputs-first {
@@ -76,7 +78,6 @@ body {
     align-items: stretch;
     justify-content: center;
     z-index: 1;
-    /* padding: 10px; */
     font-size: 30px;
     height: 70%;
 }
@@ -87,26 +88,36 @@ body {
     }
 }
 .button-bottom-first {
-    background-color: #f8b832;
+    background-color: rgba(249, 200, 50);
     padding: 1em 2em;
     font-weight: bold;
     font-size: 66%;
     color: white;
     margin-bottom: 40px;
     transition: color 0.2s, background-color 0.2s;
+    border: none;
 }
 
 .button-bottom-first:hover {
     cursor: pointer;
-    background-color: #ffdb8f;
+    background-color: #ffdb6f;
     color: rgba(40, 40, 40);
+    border: none;
 }
 
 .main-text {
     font-size: 133%;
     font-weight: bold;
     text-align: center;
-    color: rgba(40, 40, 40);
+    color: white;
+    margin-bottom: 20px;
+}
+
+.main-text-test {
+    font-size: 130%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -114,7 +125,7 @@ body {
     font-size: 120%;
     font-weight: bold;
     text-align: center;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -122,42 +133,49 @@ body {
     font-size: 110%;
     font-weight: bold;
     text-align: center;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-bottom: 20px;
     padding: 0px 30px 15px 30px;
-    border-bottom: 1px solid #f8b832;
+    border-bottom: 1px solid rgba(249, 200, 50);
 }
 
 .main-text-signers-city {
     font-size: 110%;
     font-weight: bold;
     text-align: center;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-bottom: 20px;
     padding: 15px 30px 15px 30px;
-    border-bottom: 1px solid #f8b832;
+    border-bottom: 1px solid rgba(249, 200, 50);
 }
 
 .main-text-pr .text-first {
     font-size: 90%;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-top: 5px;
     margin-bottom: 60px;
     text-align: center;
 }
 
+.text-first-test {
+    font-size: 90%;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 60px;
+    text-align: center;
+}
 .main-text-edit {
     font-size: 110%;
     font-weight: bold;
     text-align: center;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-bottom: 10px;
     margin-top: 20px;
 }
 
 .text-home {
     font-size: 90%;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-top: 5px;
     margin-bottom: 30px;
     text-align: center;
@@ -165,7 +183,7 @@ body {
 
 .text-aboutus {
     font-size: 95%;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-top: 15px;
     margin-bottom: 10px;
     text-align: center;
@@ -173,14 +191,14 @@ body {
 
 .text-thanks {
     font-size: 80%;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-top: 20px;
     margin-bottom: 25px;
     text-align: center;
 }
 
 .link-thanks {
-    color: rgba(40, 40, 40);
+    color: white;
 }
 
 .content {
@@ -205,8 +223,17 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.7;
-    background-color: white;
+    background-color: rgba(40, 40, 40, 0.58);
+    padding: 10px;
+}
+
+.white-background-test {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(40, 40, 40, 0.58);
+    padding: 20px;
 }
 
 #form-register {
@@ -230,39 +257,43 @@ body {
     margin-top: 7px;
 }
 .button-submit-signup {
-    background-color: #f8b832;
+    background-color: rgba(249, 200, 50);
     padding: 1em 2em;
     font-weight: bold;
     font-size: 66%;
     color: white;
     margin-bottom: 40px;
     transition: color 0.2s, background-color 0.2s;
+    border: none;
 }
 
 .button-submit-signup:hover {
     cursor: pointer;
-    background-color: #ffdb8f;
+    background-color: #ffdb6f;
     color: rgba(40, 40, 40);
+    border: none;
 }
 
 .button-submit-signpetition {
-    background-color: #f8b832;
+    background-color: rgba(249, 200, 50);
     padding: 1em 2em;
     font-weight: bold;
     font-size: 66%;
     color: white;
     transition: color 0.2s, background-color 0.2s;
     margin-top: 5px;
+    border: none;
 }
 
 .button-submit-signpetition:hover {
     cursor: pointer;
-    background-color: #ffdb8f;
+    background-color: #ffdb6f;
     color: rgba(40, 40, 40);
+    border: none;
 }
 
 .button-submit-edit {
-    background-color: #f8b832;
+    background-color: rgba(249, 200, 50);
     padding: 0.5em 2em;
     font-weight: bold;
     font-size: 66%;
@@ -270,16 +301,18 @@ body {
     transition: color 0.2s, background-color 0.2s;
     margin-top: 25px;
     margin-bottom: 15px;
+    border: none;
 }
 
 .button-submit-edit:hover {
     cursor: pointer;
-    background-color: #ffdb8f;
+    background-color: #ffdb6f;
     color: rgba(40, 40, 40);
+    border: none;
 }
 
 .button-bottom-aboutus {
-    background-color: #f8b832;
+    background-color: rgba(249, 200, 50);
     padding: 1em 2em;
     font-weight: bold;
     font-size: 66%;
@@ -287,25 +320,28 @@ body {
     transition: color 0.2s, background-color 0.2s;
     margin-top: 12px;
     margin-bottom: 15px;
+    border: none;
 }
 
 .button-bottom-aboutus:hover {
     cursor: pointer;
-    background-color: #ffdb8f;
+    background-color: #ffdb6f;
     color: rgba(40, 40, 40);
+    border: none;
 }
 
 .bottom-text-register {
-    font-size: 14px;
+    font-size: 16px;
+    color: white;
 }
 
 .click-here {
-    color: rgba(40, 40, 40);
+    color: white;
 }
 
 .error-message-profile {
     font-size: 16px;
-    color: #f8b832;
+    color: rgba(249, 200, 50);
     text-align: center;
     margin-bottom: 3px;
 }
@@ -328,13 +364,13 @@ body {
     font-size: 133%;
     font-weight: bold;
     text-align: center;
-    color: rgba(40, 40, 40);
+    color: white;
     margin-bottom: 12px;
     margin-top: 30px;
 }
 
 .button-submit-login {
-    background-color: #f8b832;
+    background-color: rgba(249, 200, 50);
     padding: 1em 2em;
     font-weight: bold;
     font-size: 66%;
@@ -342,12 +378,14 @@ body {
     transition: color 0.2s, background-color 0.2s;
     margin-top: 5px;
     margin-bottom: 30px;
+    border: none;
 }
 
 .button-submit-login:hover {
     cursor: pointer;
-    background-color: #ffdb8f;
+    background-color: #ffdb6f;
     color: rgba(40, 40, 40);
+    border: none;
 }
 
 .thanks-signature {
@@ -362,17 +400,18 @@ body {
     flex-grow: 1;
     text-align: center;
     font-size: 70%;
-    color: rgba(40, 40, 40);
+    color: white;
     padding-bottom: 25px;
 }
 
 .links-signers {
-    color: rgba(40, 40, 40);
+    color: white;
 }
 
 .messageFill {
     text-align: center;
-    font-size: 60%;
+    font-size: 50%;
     margin-top: 0px;
     margin-bottom: 0px;
+    color: white;
 }
