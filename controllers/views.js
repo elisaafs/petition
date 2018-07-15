@@ -116,3 +116,9 @@ exports.logout = (req, res) => {
     req.session = null;
     res.redirect("/");
 };
+
+exports.getLiveInBerlin = (req, res) => {
+    res.render("liveinberlin", {
+        layout: "main"
+    });
+};

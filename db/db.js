@@ -142,15 +142,15 @@ exports.deleteSignature = function(userId) {
 };
 
 exports.editProfile = function(userId, age, areaOfBerlin, homepage) {
-    const q = `INSERT INTO profiles (age, area_of_berlin, homepage, user_id)
+    const q = `INSERT INTO profiles (user_id, age, area_of_berlin, homepage)
     VALUES ($1, $2, $3, $4)
     ON CONFLICT (user_id)
     DO UPDATE SET age = $2, area_of_berlin = $3, homepage = $4 WHERE profiles.user_id =$1
     RETURNING *;`;
-    const params = [age || null, areaOfBerlin, homepage, userId];
-
+    const params = [userId, age, areaOfBerlin, homepage];
+    console.log("editProfile", params);
     return db.query(q, params).then(results => {
-        console.log(results.rows[0]);
+        console.log("editProfile result", results.rows[0]);
         return results.rows[0];
     });
 };
@@ -166,9 +166,9 @@ exports.editUser = function(
     RETURNING id, first_name, last_name, email;`;
 
     const params = [firstName, lastName, email, hashedPassword, userId];
-    console.log(params);
+    console.log("editUser", params);
     return db.query(q, params).then(results => {
-        console.log(results.rows[0]);
+        console.log("editUser result", results.rows[0]);
         return results.rows[0];
     });
 };

@@ -5,10 +5,10 @@ const utils = require("../utils");
 exports.registerUser = (req, res) => {
     let pass = "";
     if (
-        req.body.firstname == "" ||
-        req.body.lastname == "" ||
-        req.body.emailAddress == "" ||
-        req.body.password == ""
+        req.body.firstname === "" ||
+        req.body.lastname === "" ||
+        req.body.emailAddress === "" ||
+        req.body.password === ""
     ) {
         res.render("signup", {
             layout: "main",
@@ -47,64 +47,92 @@ exports.storeProfile = (req, res) => {
             layout: "main",
             error: "Type just numbers in the field 'Age'."
         });
-    } else {
-        db.insertInfoUsers(
-            req.session.id,
-            req.body.age === "" ? undefined : parseInt(req.body.age),
-            req.body.areaOfBerlin,
-            req.body.homepage
-        )
-            .then(newUserInfos => {
-                req.session.infos = newUserInfos.id;
-                req.session.user = {
-                    keyAge: newUserInfos.age,
-                    keyAreaOfBerlin: newUserInfos.areaOfBerlin,
-                    keyHomepage: newUserInfos.homepage
-                };
-                res.redirect("/home");
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        return;
     }
+
+    db.insertInfoUsers(
+        req.session.id,
+        req.body.age === "" ? undefined : parseInt(req.body.age),
+        req.body.areaOfBerlin,
+        utils.sanitizeHomepageUrl(req.body.homepage)
+    )
+        .then(newUserInfos => {
+            req.session.infos = newUserInfos.id;
+            req.session.user = {
+                keyAge: newUserInfos.age,
+                keyAreaOfBerlin: newUserInfos.areaOfBerlin,
+                keyHomepage: newUserInfos.homepage
+            };
+            res.redirect("/home");
+        })
+        .catch(err => {
+            console.log(err);
+        });
 };
 
+function updateProfileInternal(newUserData, newProfileData, req, res) {
+    console.log(newProfileData);
+    Promise.all([
+        db.editProfile(
+            req.session.id,
+            newProfileData.age,
+            newProfileData.areaOfBerlin,
+            newProfileData.homepage
+        ),
+        db.editUser(
+            newUserData.firstName,
+            newUserData.lastName,
+            newUserData.email,
+            newUserData.hashedPassword,
+            req.session.id
+        )
+    ]).then(() => {
+        res.redirect("/home");
+    });
+}
+
 exports.updateProfile = (req, res) => {
-    let pass = "";
     if (req.body.age != "" && !utils.isStringANumber(req.body.age)) {
         res.render("editprofile", {
             layout: "main",
             error: "Type just numbers in the field 'Age'."
         });
+        return;
     }
-    if (req.body.password != "") {
-        Promise.all([
-            bc.hashPassword(req.body.password),
-            db.editProfile(
-                req.session.id,
-                req.body.age === "" ? undefined : parseInt(req.body.age),
-                req.body.areaOfBerlin,
+
+    db.getInfoToEditProfile(req.session.id).then(userAndProfileData => {
+        const newUserData = {
+            firstName: req.body.firstname || userAndProfileData.first_name,
+            lastName: req.body.lastname || userAndProfileData.last_name,
+            email: req.body.email || userAndProfileData.email,
+            hashedPassword: userAndProfileData.hashed_password
+        };
+
+        const newProfileData = {
+            age: userAndProfileData.age,
+            areaOfBerlin:
+                req.body["area-of-berlin"] || userAndProfileData.area_of_berlin,
+            homepage: userAndProfileData.homepage
+        };
+
+        if (req.body.age) {
+            newProfileData.age = parseInt(req.body.age);
+        }
+        if (req.body.homepage) {
+            newProfileData.homepage = utils.sanitizeHomepageUrl(
                 req.body.homepage
-            )
-        ])
-            .then(hashedPassword => {
-                pass = hashedPassword;
-                db.editProfile(
-                    pass,
-                    req.session.id,
-                    req.body.age === "" ? undefined : parseInt(req.body.age),
-                    req.body.areaOfBerlin,
-                    req.body.homepage
-                ).then(editedUserProfile => {
-                    req.session.id = editedUserProfile.id;
-                    console.log("editedUserProfile.id", editedUserProfile.id);
-                    res.redirect("/home");
-                });
-            })
-            .catch(err => {
-                console.log(err);
+            );
+        }
+
+        if (req.body.password != "") {
+            bc.hashPassword(req.body.password).then(hashedPassword => {
+                newUserData.hashedPassword = hashedPassword;
+                updateProfileInternal(newUserData, newProfileData, req, res);
             });
-    }
+        } else {
+            updateProfileInternal(newUserData, newProfileData, req, res);
+        }
+    });
 };
 
 exports.login = (req, res) => {

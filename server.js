@@ -17,7 +17,8 @@ const {
     getSignersView,
     getSignersByAreaView,
     getAboutUs,
-    getAboutUsLoggedIn
+    getAboutUsLoggedIn,
+    getLiveInBerlin
 } = require("./controllers/views");
 const {
     registerUser,
@@ -73,9 +74,9 @@ app.get("/signers/:areaofberlin", signedOutRedirect, getSignersByAreaView);
 
 app.get("/", signedInRedirect, getFirstPage);
 
-app.get("/aboutus", getAboutUs);
+app.get("/about", getAboutUs);
 
-app.get("/aboutus/loggedin", signedOutRedirect, getAboutUsLoggedIn);
+app.get("/about/loggedin", signedOutRedirect, getAboutUsLoggedIn);
 
 app.get("/home", signedOutRedirect, getHome);
 
@@ -88,5 +89,7 @@ app.post("/login", login);
 app.get("/logout", signedOutRedirect, logout);
 
 app.get("/delete", deleteSignature);
+
+app.get("/liveinberlin", signedInRedirect, getLiveInBerlin);
 
 app.listen(process.env.PORT || 8080);
